@@ -7,7 +7,7 @@ namespace Snake
     {
         public static void Main(string[] args)
         {
-            
+            // отрисовка рамочки
             HorizontalLine upLine = new HorizontalLine(0,78,0, '+');
             upLine.Draw();
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
@@ -16,7 +16,12 @@ namespace Snake
             leftLine.Draw();
             VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
             rightLine.Draw();
-
+            
+            // отрисовка точки
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
+            
             Console.ReadLine();
         }
     }
