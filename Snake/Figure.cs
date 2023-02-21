@@ -10,7 +10,9 @@ namespace Snake
     {
         protected List<Point> pList;
 
-        public void Draw()
+        public virtual void Draw() 
+        // virtual означает, что любой наследник класса Figure может переопределить и
+        // написать свою реализацию метода Draw класса Figure
         {
             foreach (Point p in pList)
             {

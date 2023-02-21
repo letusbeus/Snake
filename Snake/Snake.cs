@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,12 +22,13 @@ namespace Snake
             }
         }
 
-        public void Move()
+        internal void Move()
         {
             Point tail = pList.First();
             pList.Remove(tail);
             Point head = GetNextPoint();
             pList.Add(head);
+            
             tail.Clear();
             head.Draw();
         }

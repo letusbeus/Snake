@@ -17,5 +17,20 @@ namespace Snake
                 pList.Add(p);
             }
         }
+
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            // foreach (Point p in pList)
+            // {
+            //     p.Draw();
+            // }
+            // поскольку реализация переопределенного метода Draw класса HorizontalLine
+            // полностью копирует базовый метод Draw класса Figure, можно заменить цикл foreach
+            // следующим кодом:
+            base.Draw();
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }
