@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 
 namespace Snake
 {
     class Snake : Figure
     {
         Direction direction;
-        
+
         public Snake(Point tail, int lenght, Direction _direction)
         {
             direction = _direction;
@@ -28,7 +29,6 @@ namespace Snake
             pList.Remove(tail);
             Point head = GetNextPoint();
             pList.Add(head);
-            
             tail.Clear();
             head.Draw();
         }
@@ -44,21 +44,26 @@ namespace Snake
         public void HandleKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
-            {
                 direction = Direction.LEFT;
-            }
             else if (key == ConsoleKey.RightArrow)
-            {
                 direction = Direction.RIGHT;
-            }
             else if (key == ConsoleKey.UpArrow)
-            {
                 direction = Direction.UP;
-            }
             else if (key == ConsoleKey.DownArrow)
-            {
                 direction = Direction.DOWN;
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
             }
+            else
+                return false;
         }
     }
 }
