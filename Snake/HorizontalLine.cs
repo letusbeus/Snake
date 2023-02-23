@@ -11,26 +11,11 @@ namespace Snake
         public HorizontalLine(int xLeft, int xRight, int y, char sym)
         {
             pList = new List<Point>();
-            for (int x = xLeft; x <= xRight; x++)
+            for(int x = xLeft; x <= xRight; x++)
             {
-                Point p = new Point(x, y, sym);
-                pList.Add(p);
-            }
-        }
-
-        public override void Draw()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            // foreach (Point p in pList)
-            // {
-            //     p.Draw();
-            // }
-            // поскольку реализация переопределенного метода Draw класса HorizontalLine
-            // полностью копирует базовый метод Draw класса Figure, можно заменить цикл foreach
-            // следующим кодом:
-            base.Draw();
-
-            Console.ForegroundColor = ConsoleColor.White;
+                Point p = new Point( x, y, sym );
+                pList.Add( p );
+            }			
         }
     }
 }
